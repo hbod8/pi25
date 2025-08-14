@@ -1,3 +1,3 @@
-void init_lua(lua_State *L) {
-  
-}
+#include <lua.h>
+
+void init_lua(lua_State *L);

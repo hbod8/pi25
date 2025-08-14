@@ -16,25 +16,8 @@
 #include <lauxlib.h>
 #include <lualib.h>
 
-void test_battery(){
-  char buf[64];
-  int bat_pcnt = read_battery();
-  bat_pcnt = bat_pcnt>>8;
-  int bat_charging = bitRead(bat_pcnt,7);
-  bitClear(bat_pcnt,7);
-  sprintf(buf,"battery percent is %d\n",bat_pcnt);
-  printf("%s", buf);
-  lcd_print_string(buf);
-  if (bat_charging == 0) {
-    sprintf(buf,"battery is not charging\n");
-  } else {
-    sprintf(buf,"battery is charging\n");
-  }
-  printf("%s", buf);
-  lcd_print_string(buf);
-}
-
 int main() {
+  // Basic init
   set_sys_clock_khz(133000, true);
   stdio_init_all();
 
@@ -46,13 +29,12 @@ int main() {
   init_i2c_kbd();
   lcd_init();
 
+  // Screen setup
   lcd_clear();
   char buf[64];
   sprintf(buf, "Pi25 %s LUA %s\n", PI45_VERSION, PI45_LUA_VERSION);
   lcd_print_string(buf);
 
-  sleep_ms(2000);
-  test_battery();
   while (1) {
     int c = lcd_getc(0);
     if(c != -1 && c > 0) {

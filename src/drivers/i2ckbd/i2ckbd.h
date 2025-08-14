@@ -1,6 +1,6 @@
 #ifndef I2C_KEYBOARD_H
 #define I2C_KEYBOARD_H
-#include <pico/stdlib.h>
+#include <stdlib.h>
 #include <pico/platform.h>
 #include <hardware/gpio.h>
 #include <hardware/i2c.h>

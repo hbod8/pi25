@@ -1,1 +1,0 @@
-void write_chars(char* s);
