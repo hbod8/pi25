@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.13)
 
 set(CMAKE_C_STANDARD 17)
 
-project(drivers
-        VERSION 0.0.1
-        DESCRIPTION "assets")
+project(assets
+  VERSION 0.0.1
+  DESCRIPTION "assets")
 
 add_library(assets INTERFACE)
 
